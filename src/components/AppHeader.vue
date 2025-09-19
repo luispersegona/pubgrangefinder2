@@ -1,0 +1,95 @@
+<script>
+import { mapList } from '@/libs/mapsParams';
+
+export default {
+  data() {
+    return {
+      mapList
+    }
+  }
+}
+
+</script>
+
+<template>
+<div class="navbar">
+  <div class="navbar__menu">
+    <div class = "navbar__logo" @click="$router.push('/')">PubgRangeFinder</div>
+    <div 
+      class="navbar__btns"
+      v-for="map in mapList"
+      :key="map"
+    >
+      <div 
+        class = "navbar__btn" 
+        :class="{ active: (this.$store.state.currentMap == map) }"
+
+        @click="$router.push(`/${map}`)"
+        >
+          <span class="navbar_text">{{ map.toUpperCase() }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="navbar__cr">
+    <a href="https://pubgrank.vercel.app/" target="_blank">PubgRank</a>
+  </div>
+</div>
+</template>
+
+<style scoped>
+.navbar {
+  height: 50px;
+  background-color: rgb(116, 3, 3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  box-shadow: 0px 4px 8px 0px rgba(194, 116, 116, 0.65);
+  z-index: 1;
+  transition-duration: 250ms;
+}
+.navbar__menu {
+  display: flex;
+}
+.navbar__logo {
+  margin-right: 40px;
+  cursor: pointer;
+  font-size: large;
+  font-weight: 600;
+  display: inline-block;
+  transition-duration: 250ms;
+}
+.navbar__logo:hover {
+  color: rgb(5, 8, 0);
+  transform: scale(1.1);
+}
+.navbar__btns {
+  margin-left: 20px;
+  display: flex;
+  font-size: large;
+}
+.navbar_text {
+  text-decoration: inherit;
+  font-weight: inherit;
+  display: inline-block;
+  transition-duration: 250ms;
+}
+.navbar_text:hover {
+  color: rgb(22, 24, 20);
+  transform: scale(1.1);
+}
+.navbar__btn {
+  margin-left: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.navbar__cr a{
+  color: initial;
+  background-color: initial;
+  text-decoration: none;
+}
+.active{
+  text-decoration: underline;
+  font-weight: 800;
+}
+</style>

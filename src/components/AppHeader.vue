@@ -14,7 +14,7 @@ export default {
 <template>
 <div class="navbar">
   <div class="navbar__menu">
-    <div class = "navbar__logo" @click="$router.push('/')">PubgRangeFinder</div>
+    <div class = "navbar__logo" @click="$router.push('/')">PubgRank</div>
     <div 
       class="navbar__btns"
       v-for="map in mapList"

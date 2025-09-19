@@ -95,6 +95,12 @@ export default {
       }
     }
   },
+  unmounted() {
+    this.image = null;
+    this.markerImg = null;
+    this.backgroundImg = null;
+    this.gridImage = null;
+  },
   methods: {
     drawBackground() {
       const context = this.canvas?.getContext("2d");
